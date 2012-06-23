@@ -1,0 +1,9 @@
+# Auto-install ship for emacs, default daniel's style
+
+1. edit config file
+
+2. run ./make
+
+3. run ./install
+
+done!

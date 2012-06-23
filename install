@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# make sure we are in the same directory as the script.
+DIR=$( cd "$( dirname "$0" )" && pwd )
+cd $DIR
+
+# get configuration
+source ./config
+
+# script must be run as root
+if [[ $EUID -ne 0 ]]; then
+echo "This script must be run as root" 1>&2
+   exit 1
+fi
+
+# copy built configs
+echo "copying built configs to /"
+mv ./build/* /
+
+# remove build directory
+echo "removing build directory"
+rmdir ./build
+
+# install emacs
+aptitude install emacs
+
+# install necessary gconf
+aptitude install gconf-defaults-service
+
+# install necessary component for emacs color-theme
+aptitude install emacs-goodies-el
