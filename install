@@ -22,10 +22,32 @@ echo "removing build directory"
 rmdir ./build
 
 # install emacs
+echo "installing emacs"
 aptitude install emacs
 
 # install necessary gconf
+echo "installing gconf"
 aptitude install gconf-defaults-service
 
-# install necessary component for emacs color-theme
+# install necessary component for kane's emacs color themes
+echo "installing color themes"
 aptitude install emacs-goodies-el
+
+# install open jdk
+echo "installing openjdk"
+aptitude install openjdk-6-jdk
+
+# get leiningen
+echo "installing leiningen"
+wget https://raw.github.com/technomancy/leiningen/stable/bin/lein
+
+# make sure ~/bin exists, create if not
+if [ ! -e ~/bin]
+then
+    mkdir ~/bin
+fi
+
+# move install file to ~/bin, set executable, execute
+mv lein ~/bin
+chmod 755 ~/bin/lein
+./lein
