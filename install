@@ -50,4 +50,3 @@ fi
 # move install file to ~/bin, set executable, execute
 mv lein ~/bin
 chmod 755 ~/bin/lein
-./lein
