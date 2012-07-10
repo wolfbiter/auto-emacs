@@ -42,11 +42,8 @@ echo "installing leiningen"
 wget https://raw.github.com/technomancy/leiningen/stable/bin/lein
 
 # make sure ~/bin exists, create if not
-if [ ! -e ~/bin]
-then
-    mkdir ~/bin
-fi
+mkdir /home/$USER/bin
 
 # move install file to ~/bin, set executable, execute
-mv lein ~/bin
-chmod 755 ~/bin/lein
+mv lein /home/$USER/bin
+chmod 755 /home/$USER/bin/lein
